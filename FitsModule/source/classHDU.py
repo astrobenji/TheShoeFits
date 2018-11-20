@@ -2,5 +2,12 @@
 
 class HDU_list(object):
 	def __init__(self):
-		n_files = 0
-		list = []
+		self.n_files = 0
+		self.list    = []
+		
+class HDU_struct(object):
+	def __init__(self):
+		self.name    = ''
+		self.dim     = (0,0)
+		self.type    = ''
+		
