@@ -1,7 +1,8 @@
 #This file collects the metadata from all fits files in the selected directory and
 #prints them to a text file, ready to import into a database
 #Written by Matt Thomas for TheShoeFits: https://github.com/matthomas15/TheShoeFits/tree/master/FitsModule
-#This code reads FITS files from the directory Datafiles/spectra in the repository and prints the properties of the Info class (from fits_module_class.py)
+#This code reads FITS files from the directory Datafiles/spectra in the repository and prints the properties 
+# of the Info class (from fits_module_class.py)
 
 #import required
 from astropy.io import fits
