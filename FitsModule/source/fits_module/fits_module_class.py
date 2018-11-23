@@ -15,9 +15,9 @@ class Info(object):
             self.dec = dat.header['DEC']
             self.plate_id = dat.header['PLATEID']
 
-filename='../SciCoder-2018-Melbourne/Data Files/spectra/spec-4055-55359-0001.fits'
-file_1 = Info(filename)
-
+#filename='../../Datafiles/spectra/spec-4055-55359-0001.fits'
+#file_1 = Info(filename)
+#print(file_1.ra)
 
 
 #create two classes

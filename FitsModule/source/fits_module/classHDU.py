@@ -8,6 +8,6 @@ class HDU_list(object):
 class HDU_struct(object):
 	def __init__(self):
 		self.name    = ''
-		self.dim     = (0,0)
+		self.dim     = [0,0] # should this be a Numpy array?
 		self.type    = ''
 		
