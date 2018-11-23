@@ -19,8 +19,9 @@ output_file = open(output_file_directory, mode = "w") #create blank output file 
 fits_files = listdir(file_directory) #Generate list of all files in directory -
 
 #Write heading names to the output file
-output_file.write("telecope_name|right_ascention|declination|plate_id")
+#output_file.write("telecope_name|right_ascention|declination|plate_id")
 a = list()
+header_counter = 0
 for file in fits_files:
     #First check that the line we are reading contains a .fits file
     line = re.search("([a-zA-Z-0-9]+.fits)", file)
@@ -29,7 +30,19 @@ for file in fits_files:
         continue
     else:
         current_file=Info(f"{file_directory}/{file}")
-        output_file.write(f"\n{current_file.telescope}|{current_file.ra }|{current_file.dec}|{current_file.plate_id}")
+        variable_dictionary = vars(current_file)
+        #Dynamically set the column headers based on the attributes of Info class.
+        if header_counter == 0:
+            for value in range(len(list(variable_dictionary.values()))):
+                output_file.write(f"{list(variable_dictionary.keys())[value]}|")
+            header_counter = 1
+            output_file.write("\n")
+        else:
+            for value in range(len(list(variable_dictionary.values()))):
+                output_file.write(f"{list(variable_dictionary.values())[value]}|")
+            output_file.write("\n")
+
+        #output_file.write(f"\n{current_file.telescope}|{current_file.ra }|{current_file.dec}|{current_file.plate_id}")
 
 
 output_file.close()
